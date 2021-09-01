@@ -1,0 +1,9 @@
+{
+	"name": "DTNA-TSA-DEV",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "30276244-d808-458d-a50a-e623015112e7",
+		"tenantId": "aef6baf5-6231-4690-9308-23d674d56b05"
+	}
+}

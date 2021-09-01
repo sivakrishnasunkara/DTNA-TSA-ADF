@@ -1,0 +1,19 @@
+{
+	"name": "blobsource",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "DTNA_KV",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "Blob-secrete-Conn"
+			}
+		},
+		"description": "Source and sink connection"
+	}
+}

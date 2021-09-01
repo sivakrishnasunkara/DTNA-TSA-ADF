@@ -1,0 +1,55 @@
+{
+	"name": "cropdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobsource",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Crop_recommendation",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Crop_recommendation.xlsx",
+				"container": "datasource"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "N",
+				"type": "String"
+			},
+			{
+				"name": "P",
+				"type": "String"
+			},
+			{
+				"name": "K",
+				"type": "String"
+			},
+			{
+				"name": "temperature",
+				"type": "String"
+			},
+			{
+				"name": "humidity",
+				"type": "String"
+			},
+			{
+				"name": "ph",
+				"type": "String"
+			},
+			{
+				"name": "rainfall",
+				"type": "String"
+			},
+			{
+				"name": "label",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
