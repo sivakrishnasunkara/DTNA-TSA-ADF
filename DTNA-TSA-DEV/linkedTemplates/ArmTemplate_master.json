@@ -1,0 +1,56 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DTNA-TSA-DEV"
+		},
+		"DTNA_KV_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://KV-DTNA-DEV.vault.azure.net/"
+		},
+		"blobsource_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "Blob-secrete-Conn"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DTNA-TSA-DEV_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"DTNA_KV_properties_typeProperties_baseUrl": {
+						"value": "[parameters('DTNA_KV_properties_typeProperties_baseUrl')]"
+					},
+					"blobsource_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('blobsource_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
