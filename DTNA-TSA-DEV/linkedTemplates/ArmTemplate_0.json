@@ -58,7 +58,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"name": "[concat(parameters('factoryName'), '/cropdatatransformed')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -162,7 +162,7 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "DelimitedText1",
+								"referenceName": "cropdatatransformed",
 								"type": "DatasetReference"
 							},
 							"name": "sink1"
@@ -174,7 +174,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/cropdata')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]"
+				"[concat(variables('factoryId'), '/datasets/cropdatatransformed')]"
 			]
 		},
 		{
@@ -214,7 +214,8 @@
 						}
 					}
 				],
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2021-09-01T12:49:49Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
