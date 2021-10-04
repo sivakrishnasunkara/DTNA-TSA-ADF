@@ -1,5 +1,5 @@
 {
-	"name": "cropdata",
+	"name": "cropdataone",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "blobsource",
